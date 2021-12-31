@@ -1,0 +1,317 @@
+@media screen and (max-width: 1470px) {
+  html {
+    font-size: 147px;
+  }
+}
+@media screen and (max-width: 1380px) {
+  html {
+    font-size: 120px;
+  }
+  li {
+    width: 175px !important;
+    font-size: 20px !important;
+  }
+  .box {
+    width: 125px !important;
+    height: 125px !important;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 99px;
+  }
+}
+@media screen and (max-width: 820px) {
+  html {
+    font-size: 99px;
+  }
+  li {
+    width: 135px !important;
+    font-size: 16px !important;
+  }
+  .box {
+    width: 125px !important;
+    height: 125px !important;
+  }
+}
+@media screen and (max-width: 720px) {
+  .box {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+@media screen and (min-width: 1470px) {
+  html {
+    font-size: 147px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 0.091rem /* 14/153.6 */;
+}
+
+body {
+  width: 1536px;
+  min-width: 530px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  background-color: #000;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.success {
+  width: 100vw;
+  text-align: center;
+  background-color: #fff;
+  opacity: 0;
+  transition: opacity 0.25s linear;
+  padding: 0.065rem /* 10/153.6 */ 0;
+}
+
+.success > span {
+  color: #000;
+  font-size: 25px;
+}
+
+.copy {
+  position: relative;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.326rem /* 50/153.6 */;
+  margin-bottom: 0.163rem /* 25/153.6 */;
+}
+
+.copy:after {
+  content: '点击按钮预览动画并复制动画名';
+  color: transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  -webkit-background-clip: text;
+  clip-path: circle(100px at 0% 50%);
+  -weblit-clip-path: circle(100px at 0% 50%);
+  animation: light 5s infinite;
+}
+@keyframes light {
+  0% {
+    clip-path: circle(50px at 0% 50%);
+    -weblit-clip-path: circle(50px at 0% 50%);
+  }
+  50% {
+    clip-path: circle(50px at 100% 50%);
+    -weblit-clip-path: circle(50px at 100% 50%);
+  }
+  100% {
+    clip-path: circle(50px at 0% 50%);
+    -weblit-clip-path: circle(100px at 0% 50%);
+  }
+}
+.a {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+.animats {
+  display: flex;
+  width: 90%;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.326rem /* 50/153.6 */;
+  pointer-events: none;
+}
+
+.boxs {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+}
+
+li {
+  position: relative;
+  min-width: 80px;
+  min-height: 14px;
+  line-height: 35px;
+  width: 1rem /* 110/153.6 */;
+  margin: 0.033rem /* 5/153.6 */;
+  font-size: 0.124rem /* 19/153.6 */;
+  text-align: center;
+  border: 1px solid #fff;
+  color: #fff;
+  transition: all 0.25s 0.1s ease-out;
+  user-select: none;
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+}
+li::after {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transition: all 0.25s;
+  z-index: -1;
+  transform: scale(0);
+}
+
+li:hover:after {
+  transform: scale(7.5);
+  transition: all 0.1s;
+}
+
+.animats:hover li {
+  opacity: 0.25;
+}
+
+.animats li:hover {
+  color: #000;
+  transition: all 0.1s;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.animats li:active {
+  transition: all 0.1s;
+  background-color: white;
+  line-height: 0.1628rem /* 25px -> .1628rem */;
+}
+
+.box {
+  position: relative;
+  height: 1.302rem /* 200/153.6 */;
+  width: 1.302rem /* 200/153.6 */;
+  margin: 0 0.228rem /* 35/153.6 */;
+  border-radius: 0.326rem /* 50/153.6 */;
+  border: none;
+  outline: none;
+  background-size: 400%;
+  color: #fff;
+  font-size: 0.13rem /* 20/153.6 */;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 1;
+  animation: glow 3s linear infinite;
+  animation-delay: calc(var(--i) * 0.1s);
+  transition: all 0.25s;
+}
+
+@keyframes glow {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+@keyframes on {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.75);
+  }
+  75% {
+    transform: scale(1.25);
+  }
+}
+
+.box:hover {
+  transition: all 0.5s;
+  transform: scale(1.25);
+}
+.box:active {
+  transition: all 0.5s;
+  transform: rotateZ(180deg) scale(0.75);
+}
+
+.box:nth-of-type(1) {
+  background-image: linear-gradient(-45deg, #f44141, #f48941, #f44141);
+}
+
+.box:nth-of-type(2) {
+  background-image: linear-gradient(-45deg, #ffeb3b, #baff3b, #ffeb3b);
+}
+
+.box:nth-of-type(3) {
+  background-image: linear-gradient(-45deg, #41ff3b, #3bf8ff, #41ff3b);
+}
+
+.box:nth-of-type(4) {
+  background-image: linear-gradient(-45deg, #3b96ff, #3b3eff, #3b96ff);
+}
+
+.box:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: inherit;
+  filter: blur(0.13rem /* 20/153.6 */);
+  opacity: 1;
+  z-index: -1;
+}
+
+.box:nth-of-type(1):before,
+.box:nth-of-type(2):before,
+.box:nth-of-type(3):before,
+.box:nth-of-type(4):before {
+  background: inherit;
+}
+
+.delay {
+  min-width: 0.651rem /* 100/153.6 */;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 0.163rem /* 25/153.6 */;
+  transition: all 0.25s;
+  border-bottom: 2px solid #3b79ff;
+  user-select: none;
+  cursor: pointer;
+}
+
+.delay:hover {
+  border-color: #f83bff !important;
+}
+
+.lyb {
+  width: 100vw;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  padding: 15px;
+  font-size: 20px;
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.lyb > a {
+  font-size: inherit;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+.lyb > a:hover {
+  color: #3b96ff;
+}
