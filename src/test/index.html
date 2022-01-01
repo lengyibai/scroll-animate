@@ -14,6 +14,7 @@
     }
 
     body {
+      width: 100vw;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -33,16 +34,9 @@
       margin-top: 75px;
     }
 
-    .btn {
-      position: absolute;
-      top: 0;
-      width: 100px;
-      height: 100px;
-      background-color: red;
-      z-index: 999;
-    }
 
     .replace {
+      width: 100vw;
       position: fixed;
       display: flex;
       justify-content: center;
@@ -172,14 +166,12 @@
       let isEmpty = prompt('点击确定后需要慢慢向下滚动，才能替换为新的出场动画，刚开始滚动未替换成功属于正常现象，需要一直慢慢滚动几秒时间，才能替换成功')
       let isFirst = true
       if (isEmpty) {
-        Object.keys(animate_name).forEach(item => {
-          if (item == isEmpty) {
-            name = isEmpty
-          } else if (isFirst) {
-            alert('憨批，乱输是没有用的，去给老子复制了再来粘贴')
-            isFirst = false
-          }
-        })
+        if (Object.keys(animate_name).includes(isEmpty)) {
+          name = isEmpty
+        } else if (isFirst) {
+          alert('憨批，乱输是没有用的，去给老子复制了再来粘贴')
+          isFirst = false
+        }
       } else {
         alert('你他娘的输了个寂寞')
       }
