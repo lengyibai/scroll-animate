@@ -65,7 +65,7 @@
 }
 
 body {
-  width: 1536px;
+  width: 100vw;
   min-width: 530px;
   width: 100vw;
   height: 100vh;
@@ -79,7 +79,7 @@ body {
 }
 
 .success {
-  width: 100vw;
+  width: 100%;
   text-align: center;
   background-color: #fff;
   opacity: 0;
