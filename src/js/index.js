@@ -66,32 +66,7 @@ animatsName.forEach((item, index) => {
 animats.innerHTML = array.join(' '); //join转换成字符串
 const li = animats.querySelectorAll('li');
 const boxs = document.querySelectorAll('.box');
-const delay = document.querySelector('.delay');
 let flag = true;
-delay.addEventListener('mouseup', function () {
-  this.style.pointerEvents = 'none';
-  flag = !flag;
-  if (flag) {
-    this.innerHTML = '点击开启同步出现';
-    this.style.borderColor = '#3b79ff';
-    boxs.forEach((item, i) => {
-      item.style.animation = `on 0.75s ${i / 10}s `;
-    });
-  } else {
-    this.innerHTML = '点击开启异步出现';
-    this.style.borderColor = '#ff3b3b';
-    boxs.forEach(item => {
-      item.style.animation = 'on 0.75s 0s';
-    });
-  }
-  setTimeout(() => {
-    boxs.forEach(item => {
-      item.style.animation = 'glow 3s linear infinite';
-    });
-    this.style.pointerEvents = 'auto';
-  }, 1100);
-  fn();
-});
 fn();
 function fn() {
   li.forEach(item => {
