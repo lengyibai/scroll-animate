@@ -87,7 +87,15 @@ function opacity(el) {
 }
 
 function Animats(el, obj = {}) {
-  let { x = 0, y = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1 } = obj;
+  let {
+    x = '-200%',
+    y = 0,
+    rx = 0,
+    ry = 0.01,
+    rz = 0.01,
+    sx = 1,
+    sy = 1,
+  } = obj;
   el.style.transform = `translateX(${x}) translateY(${y}) rotateX(${rx}deg)  rotateY(${ry}deg)  rotateZ(${rz}deg) scaleX(${sx}) scaleY(${sy})`;
 }
 
