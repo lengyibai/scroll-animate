@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0">
   <title>冷弋白的网页</title>
+  <script src="http://lengyibai.gitee.io/scroll-animat/scroll-animat.js"></script>
   <style>
     * {
       margin: 0;
@@ -13,277 +14,37 @@
     }
 
     body {
-      position: relative;
-      width: 100vw;
-      overflow-x: hidden;
-      perspective: 1000px;
-    }
-
-    ul {
-      position: relative;
-      width: 90%;
-      margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
-    }
-
-    ul::after {
-      content: '';
-      flex: auto;
-    }
-
-    li {
-      position: relative;
-      width: 25%;
-      list-style: none;
-      height: 1.953rem
-        /* 300/153.6 */
-      ;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       background-color: #000;
-      box-sizing: border-box;
-      transition: all 1s;
-      border: 0.033rem
-        /* 5/153.6 */
-        solid #fff;
-      border-radius: 10%;
     }
 
-    .a {
-      position: fixed;
-      width: 100vw;
-      font-size: 0.163rem
-        /* 25/153.6 */
-      ;
-      color: #fff;
-      text-align: center;
-      line-height: 0.326rem
-        /* 50/153.6 */
-      ;
-      background-color: #000;
-      z-index: 999;
-    }
-
-    a {
-      color: rgb(51, 116, 255);
+    .lyb {
+      width: 25vw;
+      padding: 25vw 0 0;
+      font-size: 100px;
+      background-color: #fff;
+      margin-bottom: 50px;
     }
   </style>
 </head>
 
 <body>
-  <span class="a">测试代码，您可以Ctrl + S保存网页为文件来调试代码
-    <br />
-    <a href="https://gitee.com/lengyibai/code-base/blob/master/%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3.md#%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E5%85%83%E7%B4%A0%E5%8A%A8%E7%94%BB%E5%85%A5%E5%9C%BA" target="_blank">点击查看文档</a>
-  </span>
-
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
 
   <!-- JS -->
-  <script src="https://lengyibai.gitee.io/code-base/lyb.js"></script>
   <script>
-    const a = document.querySelectorAll('li');
-    $lybS2({
-      el: [a],
-      count: 0,
-      /**
-       * 一行盒子的个数
-       * 如果您的布局不是响应式或自适应的，建议将count和delay设为0
-       * 如果您的响应式布局会改变一行盒子的数目，别忘记将变量赋值给count
-       * */
-      animat: scale1,
-      duration: 500,
-      delay: 0,
-      Animats,
-    },
-      /* 由于设置了作者提供的动画scale1，下面的自定义动画已失效 */
-      {
-        x: -100,
-        y: -100,
-        rx: 90,
-        ry: 90,
-        rz: 90,
-        sx: 2,
-        sy: 4,
-      }
-    );
+    let array = [];
+    for (let i = 0; i < 250; i++) {
+      array.push('<div class="lyb"></div>');
+    }
+    document.body.innerHTML = array.join(' ');
+    const lybs = document.querySelectorAll('.lyb');
 
-    //自适应布局代码，请勿修改
-    (function flexible(window, document) {
-      //Root Font Size 153.6px
-      var docEl = document.documentElement;
-      var dpr = window.devicePixelRatio || 1;
-
-      // adjust body font size
-      function setBodyFontSize() {
-        if (document.body) {
-          document.body.style.fontSize = 12 * dpr + 'px';
-        } else {
-          document.addEventListener('DOMContentLoaded', setBodyFontSize);
-        }
-      }
-      setBodyFontSize();
-
-      // set 1rem = viewWidth / 10
-      function setRemUnit() {
-        var rem = docEl.clientWidth / 10;
-        docEl.style.fontSize = rem + 'px';
-      }
-
-      setRemUnit();
-
-      // reset rem unit on page resize
-      window.addEventListener('resize', setRemUnit);
-      window.addEventListener('pageshow', function (e) {
-        if (e.persisted) {
-          setRemUnit();
-        }
-      });
-
-      // detect 0.5px supports
-      if (dpr >= 2) {
-        var fakeBody = document.createElement('body');
-        var testElement = document.createElement('div');
-        testElement.style.border = '.5px solid transparent';
-        fakeBody.appendChild(testElement);
-        docEl.appendChild(fakeBody);
-        if (testElement.offsetHeight === 1) {
-          docEl.classList.add('hairlines');
-        }
-        docEl.removeChild(fakeBody);
-      }
-    })(window, document);
+    window.onscroll = () => {
+      $lybS2({ el: [lybs], animat: translate3, time: 1 }, { x: '100%' });
+    };
   </script>
 </body>
 
