@@ -100,20 +100,25 @@ function Animats(el, obj = {}) {
 }
 
 function $lybS2(obj, animats) {
-  let { el, animat = Animats, time = 1 } = obj;
+  let { el, animat = Animats, time = 1, playY = '50%' } = obj;
   function lyb(item, animat, time) {
+    // 判断是否进入可视区
     if (
       document.documentElement.clientHeight -
         item.getBoundingClientRect().top -
-        item.offsetHeight / 1.25 >=
+        item.offsetHeight -
+        (typeof playY == 'number'
+          ? playY
+          : item.offsetHeight * (playY.replace('%', '') / 100)) >=
       -item.offsetHeight
     ) {
+      // 进入后播放动画归位
       item.style.opacity = 1;
       item.style.transform = 'translateX(0%) rotate(0deg) scale(1)';
     } else {
+      // 否则回到进入前的位置
       item.style.transition = `all ${time}s`;
       item.style.transitionDelay = '0s';
-
       item.style.opacity = 0;
       animat(item, animats);
     }
