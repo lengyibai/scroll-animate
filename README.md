@@ -8,6 +8,8 @@
 
 ## 起步
 
+> 引入：`http://lengyibai.gitee.io/scroll-animat/scroll-animat.js`
+>
 > 页面滚动到一定位置，元素从网页底部滚上来的入场动画
 >
 > 不建议配合图片懒加载使用
