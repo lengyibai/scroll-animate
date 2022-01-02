@@ -60,7 +60,7 @@ const animats = document.querySelector('.animats');
 let array = [];
 animatsName.forEach((item, index) => {
   array.push(
-    `<li data-index="${index}" data-animat="${item[1]}">${item[0]}</li>`,
+    `<li data-index="${index}" data-animate="${item[1]}">${item[0]}</li>`,
   );
 });
 animats.innerHTML = array.join(' '); //join转换成字符串
@@ -107,7 +107,7 @@ function copyText(text, callback) {
 const success = document.querySelector('.success');
 for (var i = 0; i < li.length; i++) {
   li[i].onclick = function () {
-    var color = this.getAttribute('data-animat');
+    var color = this.getAttribute('data-animate');
     success.style.backgroundColor = color;
     copyText(color, function () {
       setTimeout(() => {

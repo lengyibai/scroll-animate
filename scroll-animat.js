@@ -108,14 +108,14 @@ function Animats(el, obj = {}, percentage = null) {
 function $lybS2(obj, animats) {
   let {
     el,
-    animat = Animats,
+    animate = Animats,
     time = 0.5,
     playY = '50%',
     scrollFllow = false,
     PLAYY = '100%',
     fade = 0,
   } = obj;
-  function lyb(item, animat, time) {
+  function lyb(item, animate, time) {
     // 触发时机高度转为数字
     playY =
       typeof playY == 'number'
@@ -139,7 +139,7 @@ function $lybS2(obj, animats) {
         // 进入后播放动画归位
         item.style.transition = 'all 0s';
         fade || (item.style.opacity = percentage);
-        animat(item, animats, percentage);
+        animate(item, animats, percentage);
         return;
       }
       // 进入后播放动画归位
@@ -150,16 +150,16 @@ function $lybS2(obj, animats) {
     } else if (entryHeight + playY < 0) {
       item.style.transition = `all 0s`;
       item.style.opacity = fade;
-      animat(item, animats);
+      animate(item, animats);
     }
   }
   el.forEach(item => {
     if (item.length) {
       item.forEach(item => {
-        lyb(item, animat, time);
+        lyb(item, animate, time);
       });
     } else {
-      lyb(item, animat, time);
+      lyb(item, animate, time);
     }
   });
 }
