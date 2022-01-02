@@ -20,6 +20,7 @@
       justify-content: center;
       align-items: center;
       background-color: #000;
+      overflow-x: hidden;
     }
 
     .lyb {
@@ -27,7 +28,7 @@
       padding: 25vw 0 0;
       font-size: 100px;
       background-color: #fff;
-      margin-bottom: 50px;
+      border: 1px solid #000;
     }
 
     .lyb:nth-of-type(1) {
@@ -73,16 +74,16 @@
   <script>
     let animate_name = {
       translate1(el) {
-        el.style.transform = `translateY(-500px)`;
+        el.style.transform = `translateY(-200%)`;
       },
       translate2(el) {
-        el.style.transform = 'translateY(500px)';
+        el.style.transform = 'translateY(200%)';
       },
       translate3(el) {
-        el.style.transform = 'translateX(-500px)';
+        el.style.transform = 'translateX(-200%)';
       },
       translate4(el) {
-        el.style.transform = 'translateX(500px)';
+        el.style.transform = 'translateX(200%)';
       },
       rotate1(el) {
         el.style.transform = 'rotateX(180deg)';
@@ -100,55 +101,55 @@
         el.style.transform = 'scale3d(2,1,1)';
       },
       mixedT1(el) {
-        el.style.transform = 'translateX(-500px) translateY(500px)';
+        el.style.transform = 'translateX(-200%) translateY(200%)';
       },
       mixedT2(el) {
-        el.style.transform = 'translateX(-500px) translateY(-500px)';
+        el.style.transform = 'translateX(-200%) translateY(-200%)';
       },
       mixedT3(el) {
-        el.style.transform = 'translateX(500px) translateY(-500px)';
+        el.style.transform = 'translateX(200%) translateY(-200%)';
       },
       mixedT4(el) {
-        el.style.transform = 'translateX(500px) translateY(500px)';
+        el.style.transform = 'translateX(200%) translateY(200%)';
       },
       mixedTR1(el) {
-        el.style.transform = 'translateY(-500px) rotateX(180deg)';
+        el.style.transform = 'translateY(-200%) rotateX(180deg)';
       },
       mixedTR2(el) {
-        el.style.transform = 'translateY(500px) rotateX(-180deg)';
+        el.style.transform = 'translateY(200%) rotateX(-180deg)';
       },
       mixedTR3(el) {
-        el.style.transform = 'translateX(-500px) rotateY(180deg)';
+        el.style.transform = 'translateX(-200%) rotateY(180deg)';
       },
       mixedTR4(el) {
-        el.style.transform = 'translateX(500px) rotateY(-180deg)';
+        el.style.transform = 'translateX(200%) rotateY(-180deg)';
       },
       mixedTR5(el) {
-        el.style.transform = 'translateX(-500px) rotateZ(-180deg)';
+        el.style.transform = 'translateX(-200%) rotateZ(-180deg)';
       },
       mixedTR6(el) {
-        el.style.transform = 'translateX(500px) rotateZ(180deg)';
+        el.style.transform = 'translateX(200%) rotateZ(180deg)';
       },
       mixedTS1(el) {
-        el.style.transform = 'translateX(-500px) scale(0.1)';
+        el.style.transform = 'translateX(-200%) scale(0.1)';
       },
       mixedTS2(el) {
-        el.style.transform = 'translateX(500px) scale(0.1)';
+        el.style.transform = 'translateX(200%) scale(0.1)';
       },
       mixedTS3(el) {
-        el.style.transform = 'translateX(500px) scale(2)';
+        el.style.transform = 'translateX(200%) scale(2)';
       },
       mixedTS4(el) {
-        el.style.transform = 'translateX(-500px) scale(2)';
+        el.style.transform = 'translateX(-200%) scale(2)';
       },
       mixedTS5(el) {
-        el.style.transform = 'translateY(-500px) scale(2)';
+        el.style.transform = 'translateY(-200%) scale(2)';
       },
       mixedTS6(el) {
-        el.style.transform = 'translateY(500px) scale(0.1)';
+        el.style.transform = 'translateY(200%) scale(0.1)';
       },
       mixedTS7(el) {
-        el.style.transform = 'translateY(500px) scale(2)';
+        el.style.transform = 'translateY(200%) scale(2)';
       },
       mixedRS1(el) {
         el.style.transform = 'rotateZ(180deg) scale(0.1)';
@@ -169,22 +170,29 @@
         if (Object.keys(animate_name).includes(isEmpty)) {
           name = isEmpty
         } else if (isFirst) {
-          alert('憨批，乱输是没有用的，去给老子复制了再来粘贴')
+          alert('乱输是没有用的，复制了再来粘贴')
           isFirst = false
         }
       } else {
-        alert('你他娘的输了个寂寞')
+        alert('输了个寂寞')
       }
     }
     let array = [];
-    for (let i = 0; i < 250; i++) {
+    for (let i = 0; i < 20; i++) {
       array.push('<div class="lyb"></div>');
     }
-    let name = 'translate3'
+    let name = 'mixedTR5'
     document.body.insertAdjacentHTML('afterbegin', array.join(' '))
     const lybs = document.querySelectorAll('.lyb');
     window.onscroll = () => {
-      $lybS2({ el: [lybs], animat: animate_name[name], time: 1 });
+      $lybS2({
+        el: [lybs[10], lybs[16]], scrollFllow: true,
+        PLAYY: '200%',
+      }, { x: '-200px' });
+      $lybS2({
+        el: [lybs[8], lybs[12], , lybs[14]], animat: animate_name[name],
+        time: 1,
+      });
     };
   </script>
 </body>
