@@ -15,24 +15,20 @@
 
     body {
       width: 100vw;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       background-color: #000;
       overflow-x: hidden;
     }
 
     .lyb {
-      width: 25vw;
-      padding: 25vw 0 0;
-      font-size: 100px;
+      width: 25%;
+      padding: 25% 0 0;
+      font-size: 50px;
       background-color: #fff;
       border: 1px solid #000;
-    }
-
-    .lyb:nth-of-type(1) {
-      margin-top: 75px;
     }
 
 
@@ -62,10 +58,43 @@
     .replace span:hover {
       border-color: #f83bff !important;
     }
+
+    .father {
+      width: 75vw;
+      height: 75vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: auto;
+      margin-top: 75px;
+    }
   </style>
 </head>
 
 <body>
+  <div class="father">
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto;padding: 50px;">艹</div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto;padding: 50px;">曰</div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto;padding: 50px;">十</div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+  </div>
   <div class="replace">
     <span>点击此处粘贴刚刚复制的动画名</span>
   </div>
@@ -177,23 +206,23 @@
         alert('输了个寂寞')
       }
     }
-    let array = [];
-    for (let i = 0; i < 20; i++) {
-      array.push('<div class="lyb"></div>');
-    }
     let name = 'mixedTR5'
-    document.body.insertAdjacentHTML('afterbegin', array.join(' '))
+
+    const father = document.querySelector('.father')
     const lybs = document.querySelectorAll('.lyb');
-    window.onscroll = () => {
+
+
+    father.addEventListener('scroll', function () {
       $lybS2({
-        el: [lybs[10], lybs[16]], scrollFllow: true,
+        el: [lybs[10]], scrollFllow: true,
         PLAYY: '200%',
-      }, { x: '-200px' });
+      }, { x: '100%' });
       $lybS2({
-        el: [lybs[8], lybs[12], , lybs[14]], animate: animate_name[name],
-        time: 1,
+        el: [lybs[13], lybs[14], lybs[15], lybs[16], lybs[17], lybs[18], lybs[19], lybs[20], lybs[8], lybs[12]], animate: animate_name[name],
+        time: 0.5,
+        father: father
       });
-    };
+    })
   </script>
 </body>
 

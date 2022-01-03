@@ -114,6 +114,7 @@ function $lybS2(obj, animats) {
     scrollFllow = false,
     PLAYY = '100%',
     fade = 0,
+    father = document.documentElement,
   } = obj;
   function lyb(item, animate, time) {
     // 触发时机高度转为数字
@@ -123,11 +124,9 @@ function $lybS2(obj, animats) {
         : item.offsetHeight * (playY.replace('%', '') / 100);
     // 获取元素进入可视区的距离
     let entryHeight =
-      document.documentElement.clientHeight -
-      item.getBoundingClientRect().top -
-      playY;
+      father.clientHeight - item.getBoundingClientRect().top - playY;
     // 判断是否进入达到触发动画的范围
-    if (entryHeight >= 0) {
+    if (entryHeight + father.offsetTop >= 0) {
       // 判断是否开启了跟随滚动
       if (scrollFllow) {
         let percentage =
@@ -147,7 +146,7 @@ function $lybS2(obj, animats) {
       item.style.opacity = 1;
       item.style.transform = null;
       // 如果离开了可视区，回到进入前的位置
-    } else if (entryHeight + playY < 0) {
+    } else if (entryHeight + playY + father.offsetTop < 0) {
       item.style.transition = `all 0s`;
       item.style.opacity = fade;
       animate(item, animats);
