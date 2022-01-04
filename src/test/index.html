@@ -36,6 +36,7 @@
       width: 100vw;
       position: fixed;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       top: 0;
@@ -96,7 +97,8 @@
     <div class="lyb"></div>
   </div>
   <div class="replace">
-    <span>点击此处粘贴刚刚复制的动画名</span>
+    <span class="paste">点击此处粘贴刚刚复制的动画名</span>&nbsp;
+    &nbsp;<span class="custom">点击设置自定义动画</span>
   </div>
 
   <!-- JS -->
@@ -191,8 +193,12 @@
       },
     }
 
-    const replace = document.querySelector('.replace')
-    replace.onclick = function () {
+    let name = ''
+    let time = 1
+    let custom_animate = { x: 0, y: 0, rx: 0, ry: 0, rz: 0, sx: 1, sy: 1 }
+    const paste = document.querySelector('.paste')
+    const custom = document.querySelector('.custom')
+    paste.onclick = function () {
       let isEmpty = prompt('点击确定后需要慢慢向下滚动，才能替换为新的出场动画，刚开始滚动未替换成功属于正常现象，需要一直慢慢滚动几秒时间，才能替换成功')
       let isFirst = true
       if (isEmpty) {
@@ -206,7 +212,17 @@
         alert('输了个寂寞')
       }
     }
-    let name = 'mixedTR5'
+
+    custom.onclick = function () {
+      custom_animate.x = prompt('元素从X轴何处出场？\n负数为左\n支持像素和百分比\n百分比以盒子宽度为参考，如 100px 或 100%\n可不填') || 0
+      custom_animate.y = prompt('元素从Y轴何处出场？\n负数为上\n支持像素和百分比\n百分比以盒子高度为参考，如 100px 或 100%\n可不填') || 0
+      custom_animate.rx = prompt('元素如何X轴旋转出场？\n只填数字，单位：度\n负数为顺时针\n可不填') || 0
+      custom_animate.ry = prompt('元素如何Y轴旋转出场？\n只填数字，单位：度\n负数为顺时针\n可不填') || 0
+      custom_animate.rz = prompt('元素如何Z轴旋转出场？\n只填数字，单位：度\n负数为顺时针\n可不填') || 0
+      custom_animate.sx = prompt('元素如何X轴缩放出场？\n只填数字，单位：元素自身倍数\n不可为负数\n与Y轴缩放相等将会等比缩放') || 1
+      custom_animate.sy = prompt('元素如何Y轴缩放出场？\n只填数字，单位：元素自身倍数\n不可为负数\n与Y轴缩放相等将会等比缩放') || 1
+      time = prompt('元素出场动画时长\n只填数字，单位：秒\n可不填，默认为1秒') || 1
+    }
 
     const father = document.querySelector('.father')
     const lybs = document.querySelectorAll('.lyb');
@@ -215,13 +231,13 @@
     father.addEventListener('scroll', function () {
       $lybS2({
         el: [lybs[10]], scrollFllow: true,
-        PLAYY: '200%',
-      }, { x: '100%' });
+        PLAYY: '300%',
+      }, { x: '-200%' });
       $lybS2({
         el: [lybs[8], lybs[12], lybs[13], lybs[14], lybs[15], lybs[16], lybs[17], lybs[18], lybs[19], lybs[20]], animate: animate_name[name],
-        time: 0.5,
+        time: time,
         father: father
-      });
+      }, custom_animate);
     })
   </script>
 </body>
