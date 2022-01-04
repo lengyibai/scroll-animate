@@ -14,7 +14,7 @@
 >
 > 不建议配合图片懒加载使用
 >
-> 此功能也支持盒子内的滚动动画，但这个盒子的父盒子千万不要通过`flex`布局的给子盒子(这个盒子)设置垂直居中，否则可能会造成高度计算错误
+> 此功能也支持盒子内的滚动动画，但这个盒子的父盒子千万不要通过`flex`布局给可以滚动的子盒子设置垂直居中，否则可能会造成高度计算错误
 >
 > 注：如果是通过`window`或`body`来监听的滚动，请给`body`设置`height: 100vh`，否则无法使用
 
@@ -31,7 +31,7 @@ $lybS2(obj, obj);
 | el          | 传递一个或多个已经通过*document.querSelector*或*document.querSelectorAll*获取的元素，<br />需要存放在数组内，即使只有一个元素 | Array                          | 是       | -                        |
 | animate     | 传递的参数请访问这个网站，[复制动画名](http://lengyibai.gitee.io/scroll-animate/)，粘贴赋给这个参数<br />如果要使用自定义动画，请删除这个参数，自定义动画参考下面的参数 | Function                       | 否       | 自定义动画函数           |
 | playY       | 元素进入可视区需要再滚动`playY`的距离才会播放出场动画以及开启`scrollFllow`后的滚动动画<br />如`100`，则元素进入可视区`100`像素后出场<br />如果为负数，则会距离可视区`100`像素时出场（此时还未进入可视区，滑动过慢可能会导致无法看到动画效果）<br />还可设置为百分比，如`50%`，则元素自身一半的位置进入可视区才会出场 | 数字(Number) \| 百分比(String) | 否       | 50%                      |
-| scrollFllow | 是否开启元素随着滚动而慢慢播放动画，暂停滚动则暂停动画，反向滚动则倒放动画<br />注意：开启后只支持自定义动画的`x`和`y`轴修改，也不支持旋转和缩放以及作者提供的动画函数 | Boolean                        | 否       | false                    |
+| scrollFllow | 是否开启元素随着滚动而慢慢播放动画，暂停滚动则暂停动画，反向滚动则倒放动画<br />注意：开启后只支持自定义动画的`x`和`y`轴修改，不支持旋转和缩放以及作者提供的动画函数 | Boolean                        | 否       | false                    |
 | PLAYY       | 元素滚动到可视区`PLAYY`的距离，才能达到最终位置，传递参数与参数`playY`一致<br />释义：如`100%`则元素完全滚动到可视区才会达到最终位置 | 数字(Number) \| 百分比(String) | 否       | 100%                     |
 | time        | 每个盒子的动画持续时间，单位为毫秒                           | Number                         | 否       | 500                      |
 | fade        | 是否开启淡入淡出，`0`则开启，`0`以上开启，最高为`1`，小数为出场时元素的透明度 | Number                         | 否       | 0                        |
@@ -41,13 +41,13 @@ $lybS2(obj, obj);
 
 > 当使用了作者提供的动画函数，也就是给`animal`传值了，自定义动画将会失效
 
-| 对象属性 | 说明                                                                                                                                                                                               | 类型             | 是否必填 | 默认值 |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------- | ------ |
-| x        | 从 x 轴哪个坐标开始播放动画，内部封装的`translateX()`，传递格式如`'100px'`                                                                                                                         | String           | 否       | -200%  |
-| y        | 从 y 轴哪个坐标开始播放动画，内部封装的`translateY()`，传递格式如`'100px'`                                                                                                                         | String           | 否       | 0      |
-| rx       | 沿 x 轴旋转，内部封装的`rotateX()`，单位为度 deg<br />开启`scrollFllow`后不支持此属性                                                                                                              | Number           | 否       | 0      |
-| ry       | 沿 y 轴旋转，内部封装的`rotateY()`，单位为度 deg<br />开启`scrollFllow`后不支持此属性                                                                                                              | Number           | 否       | 0      |
-| rz       | 沿 z 轴旋转，内部封装的`rotateZ()`，单位为度 deg<br />开启`scrollFllow`后不支持此属性                                                                                                              | Number           | 否       | 0      |
+| 对象属性 | 说明                                                         | 类型             | 是否必填 | 默认值 |
+| -------- | ------------------------------------------------------------ | ---------------- | -------- | ------ |
+| x        | 从 x 轴哪个坐标开始播放动画，内部封装的`translateX()`，传递格式如`'100px'` | String           | 否       | -200%  |
+| y        | 从 y 轴哪个坐标开始播放动画，内部封装的`translateY()`，传递格式如`'100px'` | String           | 否       | 0      |
+| rx       | 沿 x 轴旋转，内部封装的`rotateX()`，单位为度 deg<br />开启`scrollFllow`后不支持此属性 | Number           | 否       | 0      |
+| ry       | 沿 y 轴旋转，内部封装的`rotateY()`，单位为度 deg<br />开启`scrollFllow`后不支持此属性 | Number           | 否       | 0      |
+| rz       | 沿 z 轴旋转，内部封装的`rotateZ()`，单位为度 deg<br />开启`scrollFllow`后不支持此属性 | Number           | 否       | 0      |
 | sx       | 横向缩放倍数，低于 1 为缩小，大于 1 为放大，不可为负数，在没有设置`rx`或`ry`时，不可为`0`，单位为倍数，<br />横向与纵向相等时会等比缩放，内部封装的`scaleX()`<br />开启`scrollFllow`后不支持此属性 | Number \| String | 否       | 0.01   |
 | sy       | 纵向缩放倍数，低于 1 为缩小，大于 1 为放大，不可为负数，在没有设置`rx`或`ry`时，不可为`0`，单位为倍数，<br />横向与纵向相等时会等比缩放，内部封装的`scaleY()`<br />开启`scrollFllow`后不支持此属性 | Number \| String | 否       | 0.01   |
 
@@ -55,26 +55,44 @@ $lybS2(obj, obj);
 
 ```html
 <body>
-  <ul>
-    <p></p>
-    <p></p>
-    <p></p>
-    <li></li>
-    <li></li>
-    <li></li>
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <div class="box3"></div>
-  </ul>
+  <div class="father">
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto;padding: 50px;">艹</div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto;padding: 50px;">曰</div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto;padding: 50px;">十</div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+  </div>
 
   <!-- JS -->
   <script>
-    const a = document.querySelectorAll('li');
-    const b = document.querySelectorAll('p');
-    const c = document.querySelector('.box1');
-    window.onscroll = () => {
-      $lybS2({ el: [a, b, c], animate: translate3, time: 1 }, { x: '-100%' });
-    };
+    const lybs = document.querySelectorAll('.lyb');
+    //father 设置了overflow-y: auto，所以可以滚动
+    father.addEventListener('scroll', function () {
+      $lybS2({
+        el: [lybs[10]], scrollFllow: true,
+        PLAYY: '200%',
+      }, { x: '100%' });
+      $lybS2({
+        el: [lybs[8], lybs[12], lybs[13], lybs[14], lybs[15], lybs[16], lybs[17], lybs[18], lybs[19], lybs[20]], animate: animate_name[name],
+        time: 0.5,
+        father: father
+      });
+    })
   </script>
 </body>
 ```
