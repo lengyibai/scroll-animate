@@ -87,20 +87,28 @@ function opacity(el) {
 }
 
 function Animats(el, obj = {}, percentage = null) {
-  let { x = 0, y = 0, rx = 0, ry = 0, rz = 0, sx = 0.5, sy = 0.5 } = obj;
+  let { x = 0, y = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = 1 } = obj;
+  x = x.toString();
+  y = y.toString();
   if (percentage == null) {
     el.style.transform = `translateX(${x}) translateY(${y}) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scaleX(${sx}) scaleY(${sy})`;
   } else {
-    if (x.includes('px')) {
-      x = x.replace('px', '');
-      el.style.transform = `translateX(${x - percentage * x}%) translateY(${
-        y - percentage * y
-      }%)`;
-    } else if (x.includes('%')) {
-      x = x.replace('%', '');
-      el.style.transform = `translateX(${x - percentage * x}%) translateY(${
-        y - percentage * y
-      }%)`;
+    if (typeof x == 'string' || typeof y == 'string') {
+      if (x.includes('px') || y.includes('px')) {
+        x = x.replace('px', '');
+        y = y.replace('px', '');
+        el.style.transform = `translateX(${x - percentage * x}%) translateY(${
+          y - percentage * y
+        }%)`;
+      } else if (x.includes('%') || y.includes('%')) {
+        x = x.replace('%', '');
+        y = y.replace('%', '');
+        el.style.transform = `translateX(${x - percentage * x}%) translateY(${
+          y - percentage * y
+        }%)`;
+      }
+    } else {
+      el.style.transform = `translateX(${x}) translateY(${y}) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scaleX(${sx}) scaleY(${sy})`;
     }
   }
 }
@@ -153,12 +161,14 @@ function $lybS2(obj, animats) {
     }
   }
   el.forEach(item => {
-    if (item.length) {
-      item.forEach(item => {
+    try {
+      if (item.length) {
+        item.forEach(item => {
+          lyb(item, animate, time);
+        });
+      } else {
         lyb(item, animate, time);
-      });
-    } else {
-      lyb(item, animate, time);
-    }
+      }
+    } catch (error) {}
   });
 }
