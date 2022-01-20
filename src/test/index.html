@@ -311,12 +311,17 @@
       let type = Object.keys(custom_animate);
       input.forEach((item, index) => {
         item.addEventListener('blur', function () {
-          if (index == 8) {
-            time = this.value;
-          } else if (index == 0) {
+          if (index == 0) {
             name = this.value;
+          } else if (index == 8) {
+            time = this.value;
           } else {
-            custom_animate[type[index - 1]] = this.value;
+            custom_animate[type[index - 1]] =
+              this.value == ''
+                ? index == 6 || index == 7
+                  ? 1
+                  : 0
+                : this.value;
           }
         });
       });
