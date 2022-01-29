@@ -17,6 +17,10 @@
 > 此功能也支持盒子内的滚动动画，但这个盒子的父盒子千万不要通过`flex`布局给可以滚动的子盒子设置垂直居中，否则可能会造成高度计算错误
 >
 > 注：如果是通过`window`或`body`来监听的滚动，请给`body`设置`height: 100vh`，否则无法使用
+>
+> 
+>
+> Vue内使用参考demo：[Vue内元素出场动画](https://gitee.com/lengyibai/vue-library/tree/master/src/07-%E8%BF%87%E6%B8%A1%E5%8A%A8%E7%94%BB)
 
 ```js
 $lybS2(obj, obj);
