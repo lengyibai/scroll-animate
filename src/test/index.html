@@ -1,364 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=10.0"
-    />
-    <title>冷弋白的网页</title>
-    <script src="https://lengyibai.gitee.io/scroll-animate/scroll-animate.js"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
 
-      body {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #000;
-        overflow-x: hidden;
-        perspective: 1000px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0" />
+  <title>冷弋白的网页</title>
+  <script src="https://lengyibai.gitee.io/scroll-animate/scroll-animate.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-      .lyb {
-        width: 25%;
-        padding: 25% 0 0;
-        font-size: 50px;
-        background-color: #fff;
-        border: 1px solid #000;
-      }
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #000;
+      overflow-x: hidden;
+      perspective: 1000px;
+    }
 
-      .father {
-        width: 75vw;
-        height: 75vh;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
-        margin-top: 50px;
-      }
+    .lyb {
+      width: 25%;
+      padding: 25% 0 0;
+      font-size: 50px;
+      background-color: #fff;
+      border: 1px solid #000;
+    }
 
-      .replace {
-        position: fixed;
-        top: 0;
-        width: 100vw;
-        height: calc(100vh - 50px);
-        display: none;
-        transition: all 0.5s;
-        margin-top: 50px;
-        flex-direction: column;
-        background-color: #000;
-        z-index: 999;
-        opacity: 0;
-        overflow: auto;
-      }
+    .father {
+      width: 75vw;
+      height: 75vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: auto;
+      margin-top: 50px;
+    }
 
-      .replace span {
-        width: 100%;
-        text-align: left;
-        color: #fff;
-        transition: all 0.25s;
-        user-select: none;
-        cursor: pointer;
-        margin: 10px;
-      }
+    .replace {
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      height: calc(100vh - 50px);
+      display: none;
+      transition: all 0.5s;
+      margin-top: 50px;
+      flex-direction: column;
+      background-color: #000;
+      z-index: 999;
+      opacity: 0;
+      overflow: auto;
+    }
 
-      .replace span:hover {
-        border-color: #f83bff !important;
-      }
+    .replace span {
+      width: 100%;
+      text-align: left;
+      color: #fff;
+      transition: all 0.25s;
+      user-select: none;
+      cursor: pointer;
+      margin: 10px;
+    }
 
-      .replace .box {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin: 10px;
-      }
+    .replace span:hover {
+      border-color: #f83bff !important;
+    }
 
-      .close {
-        position: fixed;
-        top: 0;
-        width: 100vw;
-        font-size: 25px;
-        padding: 10px;
-        text-align: center;
-        background-color: #fff;
-        transition: all 0.25s;
-        z-index: 999;
-      }
-      .close:hover {
-        width: 50vw;
-      }
-      .close:active {
-        width: 100vw;
-        transition: all 0.05s;
-      }
+    .replace .box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 10px;
+    }
 
-      input {
-        width: 50%;
-        height: 35px;
-        outline: none;
-        background-color: #000;
-        border: 1px solid #fff;
-        color: #fff;
-        padding-left: 10px;
-      }
-    </style>
-  </head>
+    .close {
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      font-size: 25px;
+      padding: 10px;
+      text-align: center;
+      background-color: #fff;
+      transition: all 0.25s;
+      z-index: 999;
+    }
 
-  <body>
-    <div class="close">点击设置自定义动画</div>
-    <div class="father">
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb" style="width: auto; padding: 50px">艹</div>
-      <div class="lyb"></div>
-      <div class="lyb" style="width: auto; padding: 50px">曰</div>
-      <div class="lyb"></div>
-      <div class="lyb" style="width: auto; padding: 50px">十</div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
-      <div class="lyb"></div>
+    .close:hover {
+      width: 50vw;
+    }
+
+    .close:active {
+      width: 100vw;
+      transition: all 0.05s;
+    }
+
+    input {
+      width: 50%;
+      height: 35px;
+      outline: none;
+      background-color: #000;
+      border: 1px solid #fff;
+      color: #fff;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="close">点击设置自定义动画</div>
+  <div class="father">
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto; padding: 50px">艹</div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto; padding: 50px">曰</div>
+    <div class="lyb"></div>
+    <div class="lyb" style="width: auto; padding: 50px">十</div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+    <div class="lyb"></div>
+  </div>
+  <div class="replace">
+    <div class="box">
+      <span>粘贴复制的动画名，设置后自定义动画将失效</span>
+      <input type="text" placeholder="动画名" />
     </div>
-    <div class="replace">
-      <div class="box">
-        <span>粘贴复制的动画名，设置后自定义动画将失效</span>
-        <input type="text" placeholder="动画名" />
-      </div>
-      <div class="box">
-        <span
-          >元素从X轴何处出场？负数为左，支持像素和百分比，百分比以盒子宽度为参考，如
-          100px 或 100%，可不填</span
-        >
-        <input type="text" placeholder="X轴移动" />
-      </div>
-      <div class="box">
-        <span
-          >元素从Y轴何处出场？负数为上，支持像素和百分比，百分比以盒子高度为参考，如
-          100px 或 100%，可不填</span
-        >
-        <input type="text" placeholder="Y轴移动" />
-      </div>
-      <div class="box">
-        <span
-          >元素如何X轴旋转出场？只填数字，单位：度，负数为顺时针，可不填</span
-        >
-        <input type="text" placeholder="X轴旋转" />
-      </div>
-      <div class="box">
-        <span
-          >元素如何Y轴旋转出场？只填数字，单位：度，负数为顺时针，可不填</span
-        >
-        <input type="text" placeholder="Y轴旋转" />
-      </div>
-      <div class="box">
-        <span
-          >元素如何Z轴旋转出场？只填数字，单位：度，负数为顺时针，可不填</span
-        >
-        <input type="text" placeholder="Z轴旋转" />
-      </div>
-      <div class="box">
-        <span
-          >元素如何X轴缩放出场？只填数字，单位：元素自身倍数，不可为负数，与Y轴缩放相等将会等比缩放</span
-        >
-        <input type="text" placeholder="X轴缩放" />
-      </div>
-      <div class="box">
-        <span
-          >元素如何Y轴缩放出场？只填数字，单位：元素自身倍数，不可为负数，与Y轴缩放相等将会等比缩放</span
-        >
-        <input type="text" placeholder="Y轴缩放" />
-      </div>
-      <div class="box">
-        <span>元素出场动画时长，只填数字，单位：秒，可不填，默认为1秒</span>
-        <input type="text" placeholder="时长秒" />
-      </div>
+    <div class="box">
+      <span>元素从X轴何处入场？负数为左，支持像素和百分比，百分比以盒子宽度为参考，如
+        100px 或 100%，可不填</span>
+      <input type="text" placeholder="X轴移动" />
     </div>
+    <div class="box">
+      <span>元素从Y轴何处入场？负数为上，支持像素和百分比，百分比以盒子高度为参考，如
+        100px 或 100%，可不填</span>
+      <input type="text" placeholder="Y轴移动" />
+    </div>
+    <div class="box">
+      <span>元素如何X轴旋转入场？只填数字，单位：度，负数为顺时针，可不填</span>
+      <input type="text" placeholder="X轴旋转" />
+    </div>
+    <div class="box">
+      <span>元素如何Y轴旋转入场？只填数字，单位：度，负数为顺时针，可不填</span>
+      <input type="text" placeholder="Y轴旋转" />
+    </div>
+    <div class="box">
+      <span>元素如何Z轴旋转入场？只填数字，单位：度，负数为顺时针，可不填</span>
+      <input type="text" placeholder="Z轴旋转" />
+    </div>
+    <div class="box">
+      <span>元素如何X轴缩放入场？只填数字，单位：元素自身倍数，不可为负数，与Y轴缩放相等将会等比缩放</span>
+      <input type="text" placeholder="X轴缩放" />
+    </div>
+    <div class="box">
+      <span>元素如何Y轴缩放入场？只填数字，单位：元素自身倍数，不可为负数，与Y轴缩放相等将会等比缩放</span>
+      <input type="text" placeholder="Y轴缩放" />
+    </div>
+    <div class="box">
+      <span>元素入场动画时长，只填数字，单位：秒，可不填，默认为1秒</span>
+      <input type="text" placeholder="时长秒" />
+    </div>
+  </div>
 
-    <!-- JS -->
-    <script>
-      let animate_name = {
-        translate1(el) {
-          el.style.transform = `translateY(-200%)`;
-        },
-        translate2(el) {
-          el.style.transform = 'translateY(200%)';
-        },
-        translate3(el) {
-          el.style.transform = 'translateX(-200%)';
-        },
-        translate4(el) {
-          el.style.transform = 'translateX(200%)';
-        },
-        rotate1(el) {
-          el.style.transform = 'rotateX(180deg)';
-        },
-        rotate2(el) {
-          el.style.transform = 'rotateY(-180deg)';
-        },
-        scale1(el) {
-          el.style.transform = 'scale(0.1)';
-        },
-        scale2(el) {
-          el.style.transform = 'scale(2)';
-        },
-        scale3(el) {
-          el.style.transform = 'scale3d(2,1,1)';
-        },
-        mixedT1(el) {
-          el.style.transform = 'translateX(-200%) translateY(200%)';
-        },
-        mixedT2(el) {
-          el.style.transform = 'translateX(-200%) translateY(-200%)';
-        },
-        mixedT3(el) {
-          el.style.transform = 'translateX(200%) translateY(-200%)';
-        },
-        mixedT4(el) {
-          el.style.transform = 'translateX(200%) translateY(200%)';
-        },
-        mixedTR1(el) {
-          el.style.transform = 'translateY(-200%) rotateX(180deg)';
-        },
-        mixedTR2(el) {
-          el.style.transform = 'translateY(200%) rotateX(-180deg)';
-        },
-        mixedTR3(el) {
-          el.style.transform = 'translateX(-200%) rotateY(180deg)';
-        },
-        mixedTR4(el) {
-          el.style.transform = 'translateX(200%) rotateY(-180deg)';
-        },
-        mixedTR5(el) {
-          el.style.transform = 'translateX(-200%) rotateZ(-180deg)';
-        },
-        mixedTR6(el) {
-          el.style.transform = 'translateX(200%) rotateZ(180deg)';
-        },
-        mixedTS1(el) {
-          el.style.transform = 'translateX(-200%) scale(0.1)';
-        },
-        mixedTS2(el) {
-          el.style.transform = 'translateX(200%) scale(0.1)';
-        },
-        mixedTS3(el) {
-          el.style.transform = 'translateX(200%) scale(2)';
-        },
-        mixedTS4(el) {
-          el.style.transform = 'translateX(-200%) scale(2)';
-        },
-        mixedTS5(el) {
-          el.style.transform = 'translateY(-200%) scale(2)';
-        },
-        mixedTS6(el) {
-          el.style.transform = 'translateY(200%) scale(0.1)';
-        },
-        mixedTS7(el) {
-          el.style.transform = 'translateY(200%) scale(2)';
-        },
-        mixedRS1(el) {
-          el.style.transform = 'rotateZ(180deg) scale(0.1)';
-        },
-        mixedRS2(el) {
-          el.style.transform = 'rotateZ(-180deg) scale(2)';
-        },
-        opacity(el) {
-          el.style.opacity = 0;
-        },
-      };
+  <!-- JS -->
+  <script>
+    let animate_name = {
+      translate1(el) {
+        el.style.transform = `translateY(-200%)`;
+      },
+      translate2(el) {
+        el.style.transform = "translateY(200%)";
+      },
+      translate3(el) {
+        el.style.transform = "translateX(-200%)";
+      },
+      translate4(el) {
+        el.style.transform = "translateX(200%)";
+      },
+      rotate1(el) {
+        el.style.transform = "rotateX(180deg)";
+      },
+      rotate2(el) {
+        el.style.transform = "rotateY(-180deg)";
+      },
+      scale1(el) {
+        el.style.transform = "scale(0.1)";
+      },
+      scale2(el) {
+        el.style.transform = "scale(2)";
+      },
+      scale3(el) {
+        el.style.transform = "scale3d(2,1,1)";
+      },
+      mixedT1(el) {
+        el.style.transform = "translateX(-200%) translateY(200%)";
+      },
+      mixedT2(el) {
+        el.style.transform = "translateX(-200%) translateY(-200%)";
+      },
+      mixedT3(el) {
+        el.style.transform = "translateX(200%) translateY(-200%)";
+      },
+      mixedT4(el) {
+        el.style.transform = "translateX(200%) translateY(200%)";
+      },
+      mixedTR1(el) {
+        el.style.transform = "translateY(-200%) rotateX(180deg)";
+      },
+      mixedTR2(el) {
+        el.style.transform = "translateY(200%) rotateX(-180deg)";
+      },
+      mixedTR3(el) {
+        el.style.transform = "translateX(-200%) rotateY(180deg)";
+      },
+      mixedTR4(el) {
+        el.style.transform = "translateX(200%) rotateY(-180deg)";
+      },
+      mixedTR5(el) {
+        el.style.transform = "translateX(-200%) rotateZ(-180deg)";
+      },
+      mixedTR6(el) {
+        el.style.transform = "translateX(200%) rotateZ(180deg)";
+      },
+      mixedTS1(el) {
+        el.style.transform = "translateX(-200%) scale(0.1)";
+      },
+      mixedTS2(el) {
+        el.style.transform = "translateX(200%) scale(0.1)";
+      },
+      mixedTS3(el) {
+        el.style.transform = "translateX(200%) scale(2)";
+      },
+      mixedTS4(el) {
+        el.style.transform = "translateX(-200%) scale(2)";
+      },
+      mixedTS5(el) {
+        el.style.transform = "translateY(-200%) scale(2)";
+      },
+      mixedTS6(el) {
+        el.style.transform = "translateY(200%) scale(0.1)";
+      },
+      mixedTS7(el) {
+        el.style.transform = "translateY(200%) scale(2)";
+      },
+      mixedRS1(el) {
+        el.style.transform = "rotateZ(180deg) scale(0.1)";
+      },
+      mixedRS2(el) {
+        el.style.transform = "rotateZ(-180deg) scale(2)";
+      },
+      opacity(el) {
+        el.style.opacity = 0;
+      },
+    };
 
-      let name = '';
-      let time = 1;
-      let custom_animate = { x: 0, y: 0, rx: 0, ry: 0, rz: 0, sx: 1, sy: 1 };
-      const paste = document.querySelector('.paste');
-      const replace = document.querySelector('.replace');
-      const close = document.querySelector('.close');
-      let isShow = true;
-      close.addEventListener('mouseup', function () {
-        if (isShow) {
-          close.innerHTML = '点击修改';
-          replace.style.display = 'flex';
-          setTimeout(() => {
-            replace.style.opacity = 1;
-          });
-          isShow = false;
+    let name = "";
+    let time = 1;
+    let custom_animate = {
+      x: 0,
+      y: 0,
+      rx: 0,
+      ry: 0,
+      rz: 0,
+      sx: 1,
+      sy: 1,
+    };
+    const paste = document.querySelector(".paste");
+    const replace = document.querySelector(".replace");
+    const close = document.querySelector(".close");
+    let isShow = true;
+    close.addEventListener("mouseup", function () {
+      if (isShow) {
+        close.innerHTML = "点击修改";
+        replace.style.display = "flex";
+        setTimeout(() => {
+          replace.style.opacity = 1;
+        });
+        isShow = false;
+      } else {
+        close.innerHTML = "设置自定义动画";
+        replace.style.opacity = 0;
+        setTimeout(() => {
+          replace.style.display = "none";
+        }, 500);
+        isShow = true;
+      }
+    });
+    const input = document.querySelectorAll("input");
+    let type = Object.keys(custom_animate);
+    input.forEach((item, index) => {
+      item.addEventListener("blur", function () {
+        if (index == 0) {
+          name = this.value;
+        } else if (index == 8) {
+          time = this.value;
         } else {
-          close.innerHTML = '设置自定义动画';
-          replace.style.opacity = 0;
-          setTimeout(() => {
-            replace.style.display = 'none';
-          }, 500);
-          isShow = true;
+          custom_animate[type[index - 1]] =
+            this.value == "" ?
+            index == 6 || index == 7 ?
+            1 :
+            0 :
+            this.value;
         }
       });
-      const input = document.querySelectorAll('input');
-      let type = Object.keys(custom_animate);
-      input.forEach((item, index) => {
-        item.addEventListener('blur', function () {
-          if (index == 0) {
-            name = this.value;
-          } else if (index == 8) {
-            time = this.value;
-          } else {
-            custom_animate[type[index - 1]] =
-              this.value == ''
-                ? index == 6 || index == 7
-                  ? 1
-                  : 0
-                : this.value;
-          }
-        });
-      });
+    });
 
-      const father = document.querySelector('.father');
-      const lybs = document.querySelectorAll('.lyb');
+    const father = document.querySelector(".father");
+    const lybs = document.querySelectorAll(".lyb");
 
-      father.addEventListener('scroll', function () {
-        $lybS2(
-          {
-            el: [lybs[10]],
-            scrollFllow: true,
-            PLAYY: '300%',
-          },
-          { x: '-200%' },
-        );
-        $lybS2(
-          {
-            el: [
-              lybs[8],
-              lybs[12],
-              lybs[13],
-              lybs[14],
-              lybs[15],
-              lybs[16],
-              lybs[17],
-              lybs[18],
-              lybs[19],
-              lybs[20],
-            ],
-            animate: animate_name[name],
-            time: time,
-            father: father,
-          },
-          custom_animate,
-        );
+    father.addEventListener("scroll", function () {
+      $lybS2({
+        el: [lybs[10]],
+        scrollFllow: true,
+        PLAYY: "300%",
+      }, {
+        x: "-200%",
       });
-    </script>
-  </body>
+      $lybS2({
+          el: [
+            lybs[8],
+            lybs[12],
+            lybs[13],
+            lybs[14],
+            lybs[15],
+            lybs[16],
+            lybs[17],
+            lybs[18],
+            lybs[19],
+            lybs[20],
+          ],
+          animate: animate_name[name],
+          time: time,
+          father: father,
+        },
+        custom_animate
+      );
+    });
+  </script>
+</body>
+
 </html>
