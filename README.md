@@ -49,40 +49,16 @@ scrollOnce({ father, el, into, time })
 
 
 ```js
-const a = document.querySelector(".a");
-const b = document.querySelector(".b");
-const c = document.querySelector(".c");
-const d = document.querySelector(".d");
-const e = document.querySelector(".e");
-const f = document.querySelector(".f");
-const g = document.querySelector(".g");
-const father = document.querySelector(".father");
-animate([a, b, c, d, e, f, g], translate3);
-father.onscroll = function () {
-  scrollOnce({ father: this, el: a, into: 0.5 });
+const once = document.querySelector(".once");
+const once_a = document.querySelector(".once-a");
+const once_a_son = document.querySelector(".once-a-son");
+animate(once_a_son, translate1)
+once.onscroll = function () {
   scrollOnce({
-    father: this,
-    el: b,
-    into: 0.5,
-    time: 0.25,
-  });
-  scrollOnce({
-    father: this,
-    el: c,
-    into: 0.5,
-    time: 0.5,
-  });
-  scrollOnce({
-    father: this,
-    el: d,
-    into: 0.5,
-    time: 0.75,
-  });
-  scrollOnce({
-    father: this,
-    el: [e, f, g],
-    into: 0.5,
-    time: 1,
+    once: this,
+    el: once_a,
+    son: once_a_son,
+    into: 1
   });
 };
 ```
@@ -106,59 +82,20 @@ scrollRepeat({ father, el, into, animate, });
 | time     | 动画时长，单位：秒                                           | Number                 | 否       | 0.5                      |
 
 ```js
-const a = document.querySelector(".a");
-const b = document.querySelector(".b");
-const c = document.querySelector(".c");
-const d = document.querySelector(".d");
-const e = document.querySelector(".e");
-const f = document.querySelector(".f");
-const g = document.querySelector(".g");
-const father = document.querySelector(".father");
-function A(el) {
-  el.style.transform = "translateX(-200%) rotateZ(-180deg)";
-}
-function B(el) {
-  el.style.transform = "translateX(200%) rotateZ(-180deg)";
-}
-function C(el) {
-  el.style.transform = "translateX(-200%) rotateZ(180deg)";
-}
-function D(el) {
-  el.style.transform = "translateX(200%) rotateZ(180deg)";
-}
-function EFG(el) {
-  el.style.transform = "scale(0)";
-}
-father.onscroll = function () {
-  scrollRepeat({ father: this, el: a, into: 0.5, animate: A, });
+const repeat = document.querySelector(".repeat");
+const repeat_a = document.querySelector(".repeat-a");
+const repeat_a_son = document.querySelector(".repeat-a-son");
+repeat.onscroll = function () {
   scrollRepeat({
-    father: this,
-    el: b,
-    into: 0.5,
-    animate: B,
-  });
-  scrollRepeat({
-    father: this,
-    el: c,
-    into: 0.5,
-    animate: C,
-  });
-  scrollRepeat({
-    father: this,
-    el: d,
-    into: 0.5,
-    animate: D,
-  });
-  scrollRepeat({
-    father: this,
-    el: [e, f, g],
-    into: 0,
-    animate: EFG,
+    repeat: this,
+    el: repeat_a,
+    son: repeat_a_son,
+    into: 1,
+    animate: mixedTS1,
+    time: 0.5,
   });
 };
 ```
-
-
 
 ## 动画函数
 

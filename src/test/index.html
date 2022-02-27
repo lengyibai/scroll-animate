@@ -9,12 +9,43 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
   <title>冷弋白的网页</title>
-  <link rel="stylesheet" href="./default.css" />
   <style>
     * {
       margin: 0;
       padding: 0;
       color: #fff;
+    }
+
+    /* 滚动条整体背景 */
+    *::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    /* 外层轨道 */
+    *::-webkit-scrollbar-track {
+      border-radius: 5px;
+    }
+
+    /* 滚动条里面可以拖动的那部分 */
+    *::-webkit-scrollbar-thumb {
+      background: #aaa;
+      border-radius: 5px;
+    }
+
+    /* 滚动条里面可以拖动的那部分 */
+    *::-webkit-scrollbar-thumb:hover {
+      background-color: #ccc;
+    }
+
+    /* 滚动条里面可以拖动的那部分 */
+    *::-webkit-scrollbar-thumb:active {
+      background-color: #555;
+    }
+
+    /* 边角，两个滚动条交汇处 */
+    *::-webkit-scrollbar-corner {
+      display: none;
     }
 
     body {
@@ -40,6 +71,10 @@
     .box {
       height: 105vh;
       flex-shrink: 0;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .once-a,
@@ -71,9 +106,9 @@
     .repeat-f-son,
     .repeat-g-son {
       flex-shrink: 0;
-      width: 30vw;
+      width: 20vw;
       max-width: 200px;
-      height: 30vw;
+      height: 20vw;
       max-height: 200px;
     }
 
@@ -140,7 +175,7 @@
 
 <body>
   <div class="once">
-    <div class="box"></div>
+    <div class="box">只执行一次动画</div>
     <div class="once-a">
       <div class="once-a-son"></div>
     </div>
@@ -162,12 +197,11 @@
     <div class="once-g">
       <div class="once-g-son"></div>
     </div>
-
-    <div class="once-box"></div>
+    <div class="box"></div>
   </div>
   <!-- .xx用于坐标计算，.xxx用于执行动画 -->
   <div class="repeat">
-    <div class="box"></div>
+    <div class="box">可重复执行动画</div>
     <div class="repeat-a">
       <div class="repeat-a-son"></div>
     </div>
@@ -224,35 +258,35 @@
         once: this,
         el: once_a,
         son: once_a_son,
-        into: 0.5
+        into: 1
       });
       scrollOnce({
         once: this,
         el: once_b,
         son: once_b_son,
         into: 1,
-        time: 1
+        time: 0.5
       });
       scrollOnce({
         once: this,
         el: once_c,
         son: once_c_son,
         into: 1,
-        time: 1
+        time: 0.5
       });
       scrollOnce({
         once: this,
         el: once_d,
         son: once_d_son,
         into: 1,
-        time: 1
+        time: 0.5
       });
       scrollOnce({
         once: this,
         el: [once_e, once_f, once_g],
         son: [once_e_son, once_f_son, once_g_son],
         into: 1,
-        time: 1
+        time: 0.5
       });
     };
 
@@ -273,25 +307,7 @@
     const repeat_g = document.querySelector(".repeat-g");
     const repeat_g_son = document.querySelector(".repeat-g-son");
 
-    function A(el) {
-      el.style.transform = "translateX(-200%) rotateZ(-180deg)";
-    }
 
-    function B(el) {
-      el.style.transform = "translateX(200%) rotateZ(-180deg)";
-    }
-
-    function C(el) {
-      el.style.transform = "translateX(-200%) rotateZ(180deg)";
-    }
-
-    function D(el) {
-      el.style.transform = "translateX(200%) rotateZ(180deg)";
-    }
-
-    function EFG(el) {
-      el.style.transform = "scale(0)";
-    }
     repeat.onscroll = function () {
       scrollRepeat({
         repeat: this,
@@ -299,7 +315,7 @@
         son: repeat_a_son,
         into: 1,
         animate: mixedTS1,
-        time: 1,
+        time: 0.5,
       });
       scrollRepeat({
         repeat: this,
@@ -307,7 +323,7 @@
         son: repeat_b_son,
         into: 1,
         animate: mixedTS2,
-        time: 1,
+        time: 0.5,
       });
       scrollRepeat({
         repeat: this,
@@ -315,7 +331,7 @@
         son: repeat_c_son,
         into: 1,
         animate: mixedTS4,
-        time: 1,
+        time: 0.5,
       });
       scrollRepeat({
         repeat: this,
@@ -323,7 +339,7 @@
         son: repeat_d_son,
         into: 1,
         animate: mixedTS3,
-        time: 1,
+        time: 0.5,
       });
       scrollRepeat({
         repeat: this,
@@ -331,7 +347,7 @@
         son: [repeat_e_son, repeat_f_son, repeat_g_son],
         into: 1,
         animate: mixedTS6,
-        time: 1,
+        time: 0.5,
       });
     };
   </script>
