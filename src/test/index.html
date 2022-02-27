@@ -1,356 +1,339 @@
 <!DOCTYPE html>
+<!--
+  create_time：2022-02-26 星期六 16:27:20
+-->
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
   <title>冷弋白的网页</title>
-  <script src="https://lengyibai.gitee.io/scroll-animate/scroll-animate.js"></script>
+  <link rel="stylesheet" href="./default.css" />
   <style>
     * {
       margin: 0;
       padding: 0;
+      color: #fff;
     }
 
     body {
       width: 100vw;
       height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: space-evenly;
       align-items: center;
-      background-color: #000;
-      overflow-x: hidden;
-      perspective: 1000px;
     }
 
-    .lyb {
-      width: 25%;
-      padding: 25% 0 0;
-      font-size: 50px;
-      background-color: #fff;
-      border: 1px solid #000;
-    }
-
-    .father {
-      width: 75vw;
-      height: 75vh;
-      background-color: #fff;
+    .once,
+    .repeat {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow-y: auto;
-      margin-top: 50px;
-    }
-
-    .replace {
-      position: fixed;
-      top: 0;
-      width: 100vw;
-      height: calc(100vh - 50px);
-      display: none;
-      transition: all 0.5s;
-      margin-top: 50px;
-      flex-direction: column;
-      background-color: #000;
-      z-index: 999;
-      opacity: 0;
-      overflow: auto;
-    }
-
-    .replace span {
-      width: 100%;
-      text-align: left;
-      color: #fff;
-      transition: all 0.25s;
-      user-select: none;
-      cursor: pointer;
-      margin: 10px;
-    }
-
-    .replace span:hover {
-      border-color: #f83bff !important;
-    }
-
-    .replace .box {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin: 10px;
-    }
-
-    .close {
-      position: fixed;
-      top: 0;
-      width: 100vw;
-      font-size: 25px;
-      padding: 10px;
-      text-align: center;
-      background-color: #fff;
-      transition: all 0.25s;
-      z-index: 999;
-    }
-
-    .close:hover {
       width: 50vw;
-    }
-
-    .close:active {
-      width: 100vw;
-      transition: all 0.05s;
-    }
-
-    input {
-      width: 50%;
-      height: 35px;
-      outline: none;
+      height: 100vh;
+      overflow: hidden auto;
       background-color: #000;
+    }
+
+    .box {
+      height: 105vh;
+      flex-shrink: 0;
+    }
+
+    .once-a,
+    .once-b,
+    .once-c,
+    .once-d,
+    .once-e,
+    .once-f,
+    .once-g,
+    .once-a-son,
+    .once-b-son,
+    .once-c-son,
+    .once-d-son,
+    .once-e-son,
+    .once-f-son,
+    .once-g-son,
+    .repeat-a,
+    .repeat-b,
+    .repeat-c,
+    .repeat-d,
+    .repeat-e,
+    .repeat-f,
+    .repeat-g,
+    .repeat-a-son,
+    .repeat-b-son,
+    .repeat-c-son,
+    .repeat-d-son,
+    .repeat-e-son,
+    .repeat-f-son,
+    .repeat-g-son {
+      flex-shrink: 0;
+      width: 30vw;
+      max-width: 200px;
+      height: 30vw;
+      max-height: 200px;
+    }
+
+    .once-a,
+    .once-b,
+    .once-c,
+    .once-d,
+    .once-e,
+    .once-f,
+    .once-g,
+    .repeat-a,
+    .repeat-b,
+    .repeat-c,
+    .repeat-d,
+    .repeat-e,
+    .repeat-f,
+    .repeat-g {
       border: 1px solid #fff;
-      color: #fff;
-      padding-left: 10px;
+    }
+
+    .once-a-son,
+    .repeat-a-son {
+      background-color: #dc3545;
+      background-image: linear-gradient(180deg, #dc3545 0%, #fd7e14 100%);
+    }
+
+    .once-b-son,
+    .repeat-b-son {
+      background-color: #fd7e14;
+      background-image: linear-gradient(180deg, #fd7e14 0%, #ffc107 100%);
+    }
+
+    .once-c-son,
+    .repeat-c-son {
+      background-color: #ffc107;
+      background-image: linear-gradient(180deg, #ffc107 0%, #28a745 100%);
+    }
+
+    .once-d-son,
+    .repeat-d-son {
+      background-color: #28a745;
+      background-image: linear-gradient(180deg, #28a745 0%, #17a2b8 100%);
+    }
+
+    .once-e-son,
+    .repeat-e-son {
+      background-color: #17a2b8;
+      background-image: linear-gradient(180deg, #17a2b8 0%, #007bff 100%);
+    }
+
+    .once-f-son,
+    .repeat-f-son {
+      background-color: #007bff;
+      background-image: linear-gradient(180deg, #007bff 0%, #6610f2 100%);
+    }
+
+    .once-g-son,
+    .repeat-g-son {
+      background-color: #6610f2;
+      background-image: linear-gradient(180deg, #6610f2 0%, #e83e8c 100%);
     }
   </style>
 </head>
 
 <body>
-  <div class="close">点击设置自定义动画</div>
-  <div class="father">
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb" style="width: auto; padding: 50px">艹</div>
-    <div class="lyb"></div>
-    <div class="lyb" style="width: auto; padding: 50px">曰</div>
-    <div class="lyb"></div>
-    <div class="lyb" style="width: auto; padding: 50px">十</div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
-    <div class="lyb"></div>
+  <div class="once">
+    <div class="box"></div>
+    <div class="once-a">
+      <div class="once-a-son"></div>
+    </div>
+    <div class="once-b">
+      <div class="once-b-son"></div>
+    </div>
+    <div class="once-c">
+      <div class="once-c-son"></div>
+    </div>
+    <div class="once-d">
+      <div class="once-d-son"></div>
+    </div>
+    <div class="once-e">
+      <div class="once-e-son"></div>
+    </div>
+    <div class="once-f">
+      <div class="once-f-son"></div>
+    </div>
+    <div class="once-g">
+      <div class="once-g-son"></div>
+    </div>
+
+    <div class="once-box"></div>
   </div>
-  <div class="replace">
-    <div class="box">
-      <span>粘贴复制的动画名，设置后自定义动画将失效</span>
-      <input type="text" placeholder="动画名" />
+  <!-- .xx用于坐标计算，.xxx用于执行动画 -->
+  <div class="repeat">
+    <div class="box"></div>
+    <div class="repeat-a">
+      <div class="repeat-a-son"></div>
     </div>
-    <div class="box">
-      <span>元素从X轴何处入场？负数为左，支持像素和百分比，百分比以盒子宽度为参考，如
-        100px 或 100%，可不填</span>
-      <input type="text" placeholder="X轴移动" />
+    <div class="repeat-b">
+      <div class="repeat-b-son"></div>
     </div>
-    <div class="box">
-      <span>元素从Y轴何处入场？负数为上，支持像素和百分比，百分比以盒子高度为参考，如
-        100px 或 100%，可不填</span>
-      <input type="text" placeholder="Y轴移动" />
+    <div class="repeat-c">
+      <div class="repeat-c-son"></div>
     </div>
-    <div class="box">
-      <span>元素如何X轴旋转入场？只填数字，单位：度，负数为顺时针，可不填</span>
-      <input type="text" placeholder="X轴旋转" />
+    <div class="repeat-d">
+      <div class="repeat-d-son"></div>
     </div>
-    <div class="box">
-      <span>元素如何Y轴旋转入场？只填数字，单位：度，负数为顺时针，可不填</span>
-      <input type="text" placeholder="Y轴旋转" />
+    <div class="repeat-e">
+      <div class="repeat-e-son"></div>
     </div>
-    <div class="box">
-      <span>元素如何Z轴旋转入场？只填数字，单位：度，负数为顺时针，可不填</span>
-      <input type="text" placeholder="Z轴旋转" />
+    <div class="repeat-f">
+      <div class="repeat-f-son"></div>
     </div>
-    <div class="box">
-      <span>元素如何X轴缩放入场？只填数字，单位：元素自身倍数，不可为负数，与Y轴缩放相等将会等比缩放</span>
-      <input type="text" placeholder="X轴缩放" />
+    <div class="repeat-g">
+      <div class="repeat-g-son"></div>
     </div>
-    <div class="box">
-      <span>元素如何Y轴缩放入场？只填数字，单位：元素自身倍数，不可为负数，与Y轴缩放相等将会等比缩放</span>
-      <input type="text" placeholder="Y轴缩放" />
-    </div>
-    <div class="box">
-      <span>元素入场动画时长，只填数字，单位：秒，可不填，默认为1秒</span>
-      <input type="text" placeholder="时长秒" />
-    </div>
+    <div class="box"></div>
   </div>
 
   <!-- JS -->
+  <script src="../../scroll-animate.js"></script>
   <script>
-    let animate_name = {
-      translate1(el) {
-        el.style.transform = `translateY(-200%)`;
-      },
-      translate2(el) {
-        el.style.transform = "translateY(200%)";
-      },
-      translate3(el) {
-        el.style.transform = "translateX(-200%)";
-      },
-      translate4(el) {
-        el.style.transform = "translateX(200%)";
-      },
-      rotate1(el) {
-        el.style.transform = "rotateX(180deg)";
-      },
-      rotate2(el) {
-        el.style.transform = "rotateY(-180deg)";
-      },
-      scale1(el) {
-        el.style.transform = "scale(0.1)";
-      },
-      scale2(el) {
-        el.style.transform = "scale(2)";
-      },
-      scale3(el) {
-        el.style.transform = "scale3d(2,1,1)";
-      },
-      mixedT1(el) {
-        el.style.transform = "translateX(-200%) translateY(200%)";
-      },
-      mixedT2(el) {
-        el.style.transform = "translateX(-200%) translateY(-200%)";
-      },
-      mixedT3(el) {
-        el.style.transform = "translateX(200%) translateY(-200%)";
-      },
-      mixedT4(el) {
-        el.style.transform = "translateX(200%) translateY(200%)";
-      },
-      mixedTR1(el) {
-        el.style.transform = "translateY(-200%) rotateX(180deg)";
-      },
-      mixedTR2(el) {
-        el.style.transform = "translateY(200%) rotateX(-180deg)";
-      },
-      mixedTR3(el) {
-        el.style.transform = "translateX(-200%) rotateY(180deg)";
-      },
-      mixedTR4(el) {
-        el.style.transform = "translateX(200%) rotateY(-180deg)";
-      },
-      mixedTR5(el) {
-        el.style.transform = "translateX(-200%) rotateZ(-180deg)";
-      },
-      mixedTR6(el) {
-        el.style.transform = "translateX(200%) rotateZ(180deg)";
-      },
-      mixedTS1(el) {
-        el.style.transform = "translateX(-200%) scale(0.1)";
-      },
-      mixedTS2(el) {
-        el.style.transform = "translateX(200%) scale(0.1)";
-      },
-      mixedTS3(el) {
-        el.style.transform = "translateX(200%) scale(2)";
-      },
-      mixedTS4(el) {
-        el.style.transform = "translateX(-200%) scale(2)";
-      },
-      mixedTS5(el) {
-        el.style.transform = "translateY(-200%) scale(2)";
-      },
-      mixedTS6(el) {
-        el.style.transform = "translateY(200%) scale(0.1)";
-      },
-      mixedTS7(el) {
-        el.style.transform = "translateY(200%) scale(2)";
-      },
-      mixedRS1(el) {
-        el.style.transform = "rotateZ(180deg) scale(0.1)";
-      },
-      mixedRS2(el) {
-        el.style.transform = "rotateZ(-180deg) scale(2)";
-      },
-      opacity(el) {
-        el.style.opacity = 0;
-      },
+    // once
+    const once = document.querySelector(".once");
+    const once_a = document.querySelector(".once-a");
+    const once_a_son = document.querySelector(".once-a-son");
+    const once_b = document.querySelector(".once-b");
+    const once_b_son = document.querySelector(".once-b-son");
+    const once_c = document.querySelector(".once-c");
+    const once_c_son = document.querySelector(".once-c-son");
+    const once_d = document.querySelector(".once-d");
+    const once_d_son = document.querySelector(".once-d-son");
+    const once_e = document.querySelector(".once-e");
+    const once_e_son = document.querySelector(".once-e-son");
+    const once_f = document.querySelector(".once-f");
+    const once_f_son = document.querySelector(".once-f-son");
+    const once_g = document.querySelector(".once-g");
+    const once_g_son = document.querySelector(".once-g-son");
+
+    animate(once_a_son, translate1)
+    animate(once_b_son, translate2)
+    animate(once_c_son, translate3)
+    animate(once_d_son, translate4)
+    animate(once_e_son, mixedT2)
+    animate(once_f_son, mixedT3)
+    animate(once_g_son, scale1)
+    once.onscroll = function () {
+      scrollOnce({
+        once: this,
+        el: once_a,
+        son: once_a_son,
+        into: 0.5
+      });
+      scrollOnce({
+        once: this,
+        el: once_b,
+        son: once_b_son,
+        into: 1,
+        time: 1
+      });
+      scrollOnce({
+        once: this,
+        el: once_c,
+        son: once_c_son,
+        into: 1,
+        time: 1
+      });
+      scrollOnce({
+        once: this,
+        el: once_d,
+        son: once_d_son,
+        into: 1,
+        time: 1
+      });
+      scrollOnce({
+        once: this,
+        el: [once_e, once_f, once_g],
+        son: [once_e_son, once_f_son, once_g_son],
+        into: 1,
+        time: 1
+      });
     };
 
-    let name = "";
-    let time = 1;
-    let custom_animate = {
-      x: 0,
-      y: 0,
-      rx: 0,
-      ry: 0,
-      rz: 0,
-      sx: 1,
-      sy: 1,
+    // repeat
+    const repeat = document.querySelector(".repeat");
+    const repeat_a = document.querySelector(".repeat-a");
+    const repeat_a_son = document.querySelector(".repeat-a-son");
+    const repeat_b = document.querySelector(".repeat-b");
+    const repeat_b_son = document.querySelector(".repeat-b-son");
+    const repeat_c = document.querySelector(".repeat-c");
+    const repeat_c_son = document.querySelector(".repeat-c-son");
+    const repeat_d = document.querySelector(".repeat-d");
+    const repeat_d_son = document.querySelector(".repeat-d-son");
+    const repeat_e = document.querySelector(".repeat-e");
+    const repeat_e_son = document.querySelector(".repeat-e-son");
+    const repeat_f = document.querySelector(".repeat-f");
+    const repeat_f_son = document.querySelector(".repeat-f-son");
+    const repeat_g = document.querySelector(".repeat-g");
+    const repeat_g_son = document.querySelector(".repeat-g-son");
+
+    function A(el) {
+      el.style.transform = "translateX(-200%) rotateZ(-180deg)";
+    }
+
+    function B(el) {
+      el.style.transform = "translateX(200%) rotateZ(-180deg)";
+    }
+
+    function C(el) {
+      el.style.transform = "translateX(-200%) rotateZ(180deg)";
+    }
+
+    function D(el) {
+      el.style.transform = "translateX(200%) rotateZ(180deg)";
+    }
+
+    function EFG(el) {
+      el.style.transform = "scale(0)";
+    }
+    repeat.onscroll = function () {
+      scrollRepeat({
+        repeat: this,
+        el: repeat_a,
+        son: repeat_a_son,
+        into: 1,
+        animate: mixedTS1,
+        time: 1,
+      });
+      scrollRepeat({
+        repeat: this,
+        el: repeat_b,
+        son: repeat_b_son,
+        into: 1,
+        animate: mixedTS2,
+        time: 1,
+      });
+      scrollRepeat({
+        repeat: this,
+        el: repeat_c,
+        son: repeat_c_son,
+        into: 1,
+        animate: mixedTS4,
+        time: 1,
+      });
+      scrollRepeat({
+        repeat: this,
+        el: repeat_d,
+        son: repeat_d_son,
+        into: 1,
+        animate: mixedTS3,
+        time: 1,
+      });
+      scrollRepeat({
+        repeat: this,
+        el: [repeat_e, repeat_f, repeat_g],
+        son: [repeat_e_son, repeat_f_son, repeat_g_son],
+        into: 1,
+        animate: mixedTS6,
+        time: 1,
+      });
     };
-    const paste = document.querySelector(".paste");
-    const replace = document.querySelector(".replace");
-    const close = document.querySelector(".close");
-    let isShow = true;
-    close.addEventListener("mouseup", function () {
-      if (isShow) {
-        close.innerHTML = "点击修改";
-        replace.style.display = "flex";
-        setTimeout(() => {
-          replace.style.opacity = 1;
-        });
-        isShow = false;
-      } else {
-        close.innerHTML = "设置自定义动画";
-        replace.style.opacity = 0;
-        setTimeout(() => {
-          replace.style.display = "none";
-        }, 500);
-        isShow = true;
-      }
-    });
-    const input = document.querySelectorAll("input");
-    let type = Object.keys(custom_animate);
-    input.forEach((item, index) => {
-      item.addEventListener("blur", function () {
-        if (index == 0) {
-          name = this.value;
-        } else if (index == 8) {
-          time = this.value;
-        } else {
-          custom_animate[type[index - 1]] =
-            this.value == "" ?
-            index == 6 || index == 7 ?
-            1 :
-            0 :
-            this.value;
-        }
-      });
-    });
-
-    const father = document.querySelector(".father");
-    const lybs = document.querySelectorAll(".lyb");
-
-    father.addEventListener("scroll", function () {
-      $lybS2({
-        el: [lybs[10]],
-        scrollFllow: true,
-        PLAYY: "300%",
-      }, {
-        x: "-200%",
-      });
-      $lybS2({
-          el: [
-            lybs[8],
-            lybs[12],
-            lybs[13],
-            lybs[14],
-            lybs[15],
-            lybs[16],
-            lybs[17],
-            lybs[18],
-            lybs[19],
-            lybs[20],
-          ],
-          animate: animate_name[name],
-          time: time,
-          father: father,
-        },
-        custom_animate
-      );
-    });
   </script>
 </body>
 
