@@ -229,6 +229,31 @@
   <!-- JS -->
   <script src="https://lengyibai.gitee.io/scroll-animate/scroll-animate.js"></script>
   <script>
+    // 节流
+    function $throttle(fn, delay, mtm = false) {
+      if (mtm) {
+        let baseTime = 0;
+        return function () {
+          const currentTime = Date.now();
+          if (baseTime + delay < currentTime) {
+            fn.apply(this, arguments);
+            baseTime = currentTime;
+          }
+        };
+      } else {
+        let valid = true;
+        return () => {
+          if (!valid) {
+            return false;
+          }
+          valid = false;
+          setTimeout(() => {
+            fn();
+            valid = true;
+          }, delay);
+        };
+      }
+    }
     // once
     const once = document.querySelector(".once");
     const once_a = document.querySelector(".once-a");
@@ -253,7 +278,9 @@
     animate(once_e_son, mixedT2)
     animate(once_f_son, mixedT3)
     animate(once_g_son, scale1)
-    once.onscroll = function () {
+
+    const fn1 = $throttle(function () {
+      console.log(666);
       scrollOnce({
         once: this,
         el: once_a,
@@ -288,7 +315,9 @@
         into: 1,
         time: 0.5
       });
-    };
+    }, 100)
+
+    once.addEventListener('scroll', fn1)
 
     // repeat
     const repeat = document.querySelector(".repeat");
@@ -307,8 +336,7 @@
     const repeat_g = document.querySelector(".repeat-g");
     const repeat_g_son = document.querySelector(".repeat-g-son");
 
-
-    repeat.onscroll = function () {
+    const fn2 = $throttle(function () {
       scrollRepeat({
         repeat: this,
         el: repeat_a,
@@ -349,7 +377,9 @@
         animate: mixedTS6,
         time: 0.5,
       });
-    };
+    }, 100)
+
+    repeat.addEventListener('scroll', fn2)
   </script>
 </body>
 
