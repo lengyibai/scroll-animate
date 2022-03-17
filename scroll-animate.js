@@ -75,10 +75,10 @@ function scrollRepeat(obj) {
 }
 
 function translate1(el) {
-  el.style.transform = `translateY(-200%)`;
+  el.style.transform = `translateY(-100%)`;
 }
 function translate2(el) {
-  el.style.transform = "translateY(200%)";
+  el.style.transform = "translateY(100%)";
 }
 function translate3(el) {
   el.style.transform = "translateX(-200%)";
@@ -102,22 +102,22 @@ function scale3(el) {
   el.style.transform = "scale3d(2,1,1)";
 }
 function mixedT1(el) {
-  el.style.transform = "translateX(-200%) translateY(200%)";
+  el.style.transform = "translateX(-200%) translateY(100%)";
 }
 function mixedT2(el) {
-  el.style.transform = "translateX(-200%) translateY(-200%)";
+  el.style.transform = "translateX(-200%) translateY(-100%)";
 }
 function mixedT3(el) {
-  el.style.transform = "translateX(200%) translateY(-200%)";
+  el.style.transform = "translateX(200%) translateY(-100%)";
 }
 function mixedT4(el) {
-  el.style.transform = "translateX(200%) translateY(200%)";
+  el.style.transform = "translateX(200%) translateY(100%)";
 }
 function mixedTR1(el) {
-  el.style.transform = "translateY(-200%) rotateX(180deg)";
+  el.style.transform = "translateY(-100%) rotateX(180deg)";
 }
 function mixedTR2(el) {
-  el.style.transform = "translateY(200%) rotateX(-180deg)";
+  el.style.transform = "translateY(100%) rotateX(-180deg)";
 }
 function mixedTR3(el) {
   el.style.transform = "translateX(-200%) rotateY(180deg)";
@@ -144,13 +144,13 @@ function mixedTS4(el) {
   el.style.transform = "translateX(-200%) scale(2)";
 }
 function mixedTS5(el) {
-  el.style.transform = "translateY(-200%) scale(2)";
+  el.style.transform = "translateY(-100%) scale(2)";
 }
 function mixedTS6(el) {
-  el.style.transform = "translateY(200%) scale(0.1)";
+  el.style.transform = "translateY(100%) scale(0.1)";
 }
 function mixedTS7(el) {
-  el.style.transform = "translateY(200%) scale(2)";
+  el.style.transform = "translateY(100%) scale(2)";
 }
 function mixedRS1(el) {
   el.style.transform = "rotateZ(180deg) scale(0.1)";
