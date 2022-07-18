@@ -119,3 +119,94 @@ for (var i = 0; i < li.length; i++) {
     });
   };
 }
+
+
+
+
+function translate1(el) {
+  el.style.transform = `translateY(-100%)`;
+}
+function translate2(el) {
+  el.style.transform = "translateY(100%)";
+}
+function translate3(el) {
+  el.style.transform = "translateX(-200%)";
+}
+function translate4(el) {
+  el.style.transform = "translateX(200%)";
+}
+function rotate1(el) {
+  el.style.transform = "rotateX(180deg)";
+}
+function rotate2(el) {
+  el.style.transform = "rotateY(-180deg)";
+}
+function scale1(el) {
+  el.style.transform = "scale(0.1)";
+}
+function scale2(el) {
+  el.style.transform = "scale(2)";
+}
+function scale3(el) {
+  el.style.transform = "scale3d(2,1,1)";
+}
+function mixedT1(el) {
+  el.style.transform = "translateX(-200%) translateY(100%)";
+}
+function mixedT2(el) {
+  el.style.transform = "translateX(-200%) translateY(-100%)";
+}
+function mixedT3(el) {
+  el.style.transform = "translateX(200%) translateY(-100%)";
+}
+function mixedT4(el) {
+  el.style.transform = "translateX(200%) translateY(100%)";
+}
+function mixedTR1(el) {
+  el.style.transform = "translateY(-100%) rotateX(180deg)";
+}
+function mixedTR2(el) {
+  el.style.transform = "translateY(100%) rotateX(-180deg)";
+}
+function mixedTR3(el) {
+  el.style.transform = "translateX(-200%) rotateY(180deg)";
+}
+function mixedTR4(el) {
+  el.style.transform = "translateX(200%) rotateY(-180deg)";
+}
+function mixedTR5(el) {
+  el.style.transform = "translateX(-200%) rotateZ(-180deg)";
+}
+function mixedTR6(el) {
+  el.style.transform = "translateX(200%) rotateZ(180deg)";
+}
+function mixedTS1(el) {
+  el.style.transform = "translateX(-200%) scale(0.1)";
+}
+function mixedTS2(el) {
+  el.style.transform = "translateX(200%) scale(0.1)";
+}
+function mixedTS3(el) {
+  el.style.transform = "translateX(200%) scale(2)";
+}
+function mixedTS4(el) {
+  el.style.transform = "translateX(-200%) scale(2)";
+}
+function mixedTS5(el) {
+  el.style.transform = "translateY(-100%) scale(2)";
+}
+function mixedTS6(el) {
+  el.style.transform = "translateY(100%) scale(0.1)";
+}
+function mixedTS7(el) {
+  el.style.transform = "translateY(100%) scale(2)";
+}
+function mixedRS1(el) {
+  el.style.transform = "rotateZ(180deg) scale(0.1)";
+}
+function mixedRS2(el) {
+  el.style.transform = "rotateZ(-180deg) scale(2)";
+}
+function opacity(el) {
+  el.style.opacity = 0;
+}
